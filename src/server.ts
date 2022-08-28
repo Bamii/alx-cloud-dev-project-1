@@ -31,7 +31,7 @@ import {filterImageFromURL, deleteLocalFiles} from './util/util';
     try {
       const { image_url } = req.query;
       if(!image_url)
-        return res.status(500).send("Invalid Image URL");
+        return res.status(400).send("Invalid Image URL");
 
       const filename: string = await filterImageFromURL(image_url);
       res.sendFile(filename, (err) => {
